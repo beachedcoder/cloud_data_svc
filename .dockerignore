@@ -2,7 +2,9 @@ node_modules
 log
 test
 tmp
-yaml
+yamls
 *.yaml
 .git
 .gitignore
+Dockerfile
+Jenkinsfile
