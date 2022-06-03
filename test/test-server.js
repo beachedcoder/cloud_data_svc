@@ -25,7 +25,7 @@ describe('GET /version', function () {
         if (err) {
           return done(err);
         }
-        chai.expect(JSON.parse(res.text)).to.eql({ version: '1.0.0' });
+        chai.expect(JSON.parse(res.text)).to.eql({ version: '3.0.0' });
         return done();
       });
   });
