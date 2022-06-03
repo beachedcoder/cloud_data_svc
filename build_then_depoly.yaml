@@ -1,0 +1,30 @@
+steps:
+- name: node
+  entrypoint: npm
+  args: ['install']
+
+- name: node
+  entrypoint: npm
+  args: ['test']
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', '${_IMAGE_NAME}', '.' ]
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'push','${_IMAGE_NAME}']
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image','deployment/${_K8SDEPLOYMENT}','${_K8SDEPLOYMENT}=${_IMAGE_NAME}']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=${_ZONE}'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER}'
+
+options:
+  logging: 'CLOUD_LOGGING_ONLY'
+
+substitutions:
+  _CLUSTER: 'cluster-1'
+  _ZONE: 'us-central1-c'
+  _K8SDEPLOYMENT: 'demo-api'
+  _TAG_NAME: $SHORT_SHA
+  _IMAGE_NAME: 'beachcoder/internal:${_TAG_NAME}'
