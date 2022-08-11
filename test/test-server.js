@@ -10,7 +10,7 @@ describe('GET /', function () {
       .get('/')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
-      .expect(300, done);
+      .expect(200, done);
   });
 });
 
