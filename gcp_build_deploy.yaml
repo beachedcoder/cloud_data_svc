@@ -24,4 +24,4 @@ substitutions:
   _ZONE: 'us-central1-c'
   _K8SDEPLOYMENT: 'demo-api'
   _TAG_NAME: $SHORT_SHA
-  _IMAGE_NAME: 'gcr.io/roidtc-nathan-stevens/internal:${_TAG_NAME}'
+  _IMAGE_NAME: 'gcr.io/roi-dtc-demos/internal:${_TAG_NAME}'

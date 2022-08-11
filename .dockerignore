@@ -4,6 +4,7 @@ test
 tmp
 yamls
 *.yaml
+*.sql
 .git
 .gitignore
 Dockerfile

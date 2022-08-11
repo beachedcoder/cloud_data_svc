@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: demo-api
-        image: beachcoder/internal:10
+        image: beachcoder/internal:1
         env: 
         - name: SERVICE_PORT
           value: "8082"
